@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Author: NeoArchCat7, Title: XUL-config" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/XUL-config/icons/icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/XUL-config/icons/icon-512x512.png"
+    />
+
+    <!-- ios support -->
+    <link
+      rel="apple-touch-icon"
+      href="/XUL-config/icons/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <title>XUL Controller</title>
+    <link rel="stylesheet" href="/XUL-config/style.css" />
+    <link rel="canonical" href="https://neoarchcat7.github.io/XUL-config/" />
+    <link rel="manifest" href="/XUL-config/manifest.webmanifest" />
+    <meta name="theme-color" content="#2a2a2a" />
+  </head>
+  <body>
+    <header>
+      <div class="theme-switch-wrapper">
+        <label for="theme-switch">Light theme</label>
+        <input type="checkbox" id="theme-switch" class="theme-checkbox" />
+      </div>
+      <h1>XUL Configuration</h1>
+      <div class="resolution-switch-wrapper">
+        <label for="resolution-select">Fader resolution:</label>
+        <select id="resolution-select">
+          <option value="7">Low (7bit)</option>
+          <option value="10">Mid (10bit)</option>
+          <option value="14">High (14bit)</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="content-wrapper">
+      <main>
+        <div class="fader-container">
+          <div class="fader-group">
+            <div class="fader">
+              <div class="fader-track"></div>
+              <div class="fader-knob"></div>
+            </div>
+            <label for="cc-1">CC:</label>
+            <input type="number" id="cc-1" min="0" max="127" value="20" />
+          </div>
+          <div class="fader-group">
+            <div class="fader">
+              <div class="fader-track"></div>
+              <div class="fader-knob"></div>
+            </div>
+            <label for="cc-2">CC:</label>
+            <input type="number" id="cc-2" min="0" max="127" value="21" />
+          </div>
+          <div class="fader-group">
+            <div class="fader">
+              <div class="fader-track"></div>
+              <div class="fader-knob"></div>
+            </div>
+            <label for="cc-3">CC:</label>
+            <input type="number" id="cc-3" min="0" max="127" value="22" />
+          </div>
+        </div>
+        <div class="button-container">
+          <button id="send-config">Send Configuration</button>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker
+          .register("/XUL-config/service-worker.js", {
+            scope: "/XUL-config/",
+          })
+          .then((reg) => console.log("service worker registered"))
+          .catch((err) => console.log("service worker not registered", err));
+      }
+    </script>
+
+    <script src="/XUL-config/script.js"></script>
+  </body>
+</html>

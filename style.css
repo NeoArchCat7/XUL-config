@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+:root {
+  --bg-gradient-dark: linear-gradient(135deg, #3a3a3a, #4a4a4a);
+  --bg-gradient-light: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+  --text-color-dark: #e0e0e0;
+  --text-color-light: #333333;
+  --header-bg-dark: #2a2a2a;
+  --header-bg-light: #d0d0d0;
+  --input-bg-dark: #4a4a4a;
+  --input-bg-light: #c0c0c0;
+  --input-border-dark: #666;
+  --input-border-light: #999;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-gradient-dark);
+  color: var(--text-color-dark);
+  transition: background-color 0.5s ease, color 0.5s ease;
+
+  height: 100vh;
+  overflow: hidden;
+}
+
+body.light-mode {
+  background: var(--bg-gradient-light);
+  color: var(--text-color-light);
+}
+
+header {
+  background-color: var(--header-bg-dark);
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light-mode header {
+  background-color: var(--header-bg-light);
+  color: var(--text-color-light);
+}
+
+h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+main {
+  main {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.theme-switch-wrapper,
+.resolution-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.theme-checkbox {
+  margin: 0 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.theme-checkbox:hover {
+  transform: scale(1.1);
+}
+
+#resolution-select {
+  margin-left: 0.5rem;
+  font-family: "Orbitron", sans-serif;
+  background-color: var(--input-bg-dark);
+  color: var(--text-color-dark);
+  border: 1px solid var(--input-border-dark);
+  padding: 0.3rem;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+#resolution-select:hover {
+  background-color: #5a5a5a;
+}
+
+body.light-mode #resolution-select {
+  background-color: var(--input-bg-light);
+  color: var(--text-color-light);
+  border: 1px solid var(--input-border-light);
+}
+
+body.light-mode #resolution-select:hover {
+  background-color: #b0b0b0;
+}
+
+.fader-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  height: 300px;
+}
+
+.fader-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.fader {
+  width: 80px;
+  height: 250px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.fader-track {
+  width: 14px;
+  height: 100%;
+  background: linear-gradient(to bottom, #5a5a5a, #7a7a7a);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background 0.3s ease;
+}
+
+.fader-knob {
+  width: 50px;
+  height: 25px;
+  background: linear-gradient(to bottom, #8a8a8a, #6a6a6a);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.fader-knob:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.content-wrapper {
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+input[type="number"] {
+  width: 80px;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-family: "Orbitron", sans-serif;
+  background-color: var(--input-bg-dark);
+  color: var(--text-color-dark);
+  border: 1px solid var(--input-border-dark);
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+body.light-mode .fader-track {
+  background: linear-gradient(to bottom, #a0a0a0, #c0c0c0);
+}
+
+body.light-mode .fader-knob {
+  background: linear-gradient(to bottom, #909090, #707070);
+}
+
+body.light-mode input[type="number"] {
+  background-color: var(--input-bg-light);
+  color: var(--text-color-light);
+  border: 1px solid var(--input-border-light);
+}
+
+body.light-mode input[type="number"]:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+}
+
+#send-config {
+  padding: 1rem 2rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 80%;
+  max-width: 400px;
+}
+
+#send-config:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+#send-config:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+}
+
+body.light-mode #send-config {
+  background-color: #2196f3;
+  color: white;
+}
+
+body.light-mode #send-config:hover {
+  background-color: #1e88e5;
+}
+
+body.light-mode #send-config:focus {
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .button-container {
+    margin-top: 3rem;
+  }
+
+  #send-config {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .fader-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: 280px;
+    margin-top: 2rem;
+  }
+
+  .fader-group {
+    margin: 0.5rem 0;
+  }
+
+  .fader {
+    width: 60px;
+    height: 200px;
+  }
+
+  .fader-knob {
+    width: 40px;
+    height: 20px;
+  }
+
+  input[type="number"] {
+    width: 40px;
+    font-size: 0.8rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+body,
+header,
+#resolution-select,
+.fader-track,
+.fader-knob,
+input[type="number"] {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.fader-group {
+  animation: slideIn 0.5s ease-out;
+}
+
+#resolution-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+#resolution-select::-ms-expand {
+  display: none;
+}
