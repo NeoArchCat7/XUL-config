@@ -1,16 +1,12 @@
 var GHPATH = "/XUL-config";
 var APP_PREFIX = "xulc_";
-
-// The version of the cache. Every time you change any of the files
-// you need to change this version (version_01, version_02…).
-// If you don't change the version, the service worker will give your
-// users the old files!
-var VERSION = "version_00";
+var VERSION = "version_01";
+var CACHE_NAME = APP_PREFIX + VERSION;
 
 var URLS = [
   `${GHPATH}/`,
   `${GHPATH}/index.html`,
-  `${GHPATH}/styles.css`,
+  `${GHPATH}/style.css`,
   `${GHPATH}/script.js`,
   `${GHPATH}/manifest.webmanifest`,
   `${GHPATH}/icons/icon-192x192.png`,
@@ -20,13 +16,36 @@ var URLS = [
 
 // install event
 self.addEventListener("install", (evt) => {
-  console.log("service worker installed");
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("caching files");
+      return cache.addAll(URLS);
+    })
+  );
 });
 
 // activate event
 self.addEventListener("activate", (evt) => {
-  console.log("service worker activated");
+  evt.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key !== CACHE_NAME) {
+            console.log("deleting old cache", key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim();
 });
 
 // fetch event
-self.addEventListener("fetch", (evt) => {});
+self.addEventListener("fetch", (evt) => {
+  evt.respondWith(
+    caches.match(evt.request).then((response) => {
+      return response || fetch(evt.request);
+    })
+  );
+});
