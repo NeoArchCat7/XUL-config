@@ -1,16 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 
 :root {
-  --bg-gradient-dark: linear-gradient(135deg, #2c3e50, #34495e);
-  --bg-gradient-light: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+  --bg-gradient-dark: linear-gradient(
+    135deg,
+    #3a3a3a,
+    #4a4a4a
+  ); /* More grayish */
+  --bg-gradient-light: linear-gradient(
+    135deg,
+    #f0f0f0,
+    #dcdcdc
+  ); /* Less bright */
   --text-color-dark: #ecf0f1;
   --text-color-light: #2c3e50;
-  --header-bg-dark: #1c2833;
-  --header-bg-light: #d5d8dc;
-  --input-bg-dark: #34495e;
-  --input-bg-light: #ecf0f1;
-  --input-border-dark: #5d6d7e;
-  --input-border-light: #aab7b8;
+  --header-bg-dark: #2e2e2e; /* More grayish */
+  --header-bg-light: #c0c0c0; /* Less bright */
+  --input-bg-dark: #4a4a4a; /* More grayish */
+  --input-bg-light: #f0f0f0; /* Less bright */
+  --input-border-dark: #6a6a6a; /* More grayish */
+  --input-border-light: #b0b0b0; /* Less bright */
 }
 
 body {
@@ -111,7 +119,7 @@ main {
 .fader-track {
   width: 14px;
   height: 100%;
-  background: linear-gradient(to bottom, #5d6d7e, #85929e);
+  background: linear-gradient(to bottom, #6a6a6a, #8a8a8a); /* More grayish */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -121,7 +129,7 @@ main {
 .fader-knob {
   width: 50px;
   height: 25px;
-  background: linear-gradient(to bottom, #95a5a6, #7f8c8d);
+  background: linear-gradient(to bottom, #a0a0a0, #8a8a8a); /* More grayish */
   position: absolute;
   left: 50%;
   top: 50%;
@@ -161,11 +169,11 @@ input[type="number"]:focus {
 }
 
 body.light-mode .fader-track {
-  background: linear-gradient(to bottom, #d5d8dc, #aab7b8);
+  background: linear-gradient(to bottom, #c0c0c0, #a0a0a0); /* More visible */
 }
 
 body.light-mode .fader-knob {
-  background: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+  background: linear-gradient(to bottom, #d0d0d0, #b0b0b0); /* More visible */
 }
 
 body.light-mode input[type="number"] {
@@ -189,7 +197,7 @@ body.light-mode input[type="number"]:focus {
   padding: 1rem 2rem;
   font-family: "Orbitron", sans-serif;
   font-size: 1.4rem;
-  background-color: #e74c3c;
+  background-color: #27ae60; /* Contrasting green */
   color: white;
   border: none;
   border-radius: 12px;
@@ -200,13 +208,13 @@ body.light-mode input[type="number"]:focus {
 }
 
 #send-config:hover {
-  background-color: #c0392b;
+  background-color: #229954; /* Darker green */
   transform: scale(1.05);
 }
 
 #send-config:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.5); /* Green shadow */
 }
 
 body.light-mode #send-config {
