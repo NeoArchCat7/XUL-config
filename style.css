@@ -176,7 +176,7 @@ body.light-mode input[type="number"]:focus {
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 8rem;
+  margin-top: 2rem;
 }
 
 #send-config {

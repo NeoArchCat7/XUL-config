@@ -5,7 +5,7 @@ var APP_PREFIX = "xulc_";
 // you need to change this version (version_01, version_02…).
 // If you don't change the version, the service worker will give your
 // users the old files!
-var VERSION = "version_00";
+var VERSION = "version_01";
 
 var URLS = [
   `${GHPATH}/`,
