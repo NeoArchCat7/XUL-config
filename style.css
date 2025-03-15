@@ -22,7 +22,9 @@ body {
   color: var(--text-color-dark);
   transition: background-color 0.5s ease, color 0.5s ease;
   height: 100vh; /* Set body height to 100% of the viewport height */
-  overflow: auto; /* Allow scrolling */
+  overflow: hidden; /* Prevent scrolling */
+  display: flex;
+  flex-direction: column;
 }
 
 body.light-mode {
@@ -62,6 +64,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex-grow: 1; /* Allow main to grow and take up remaining space */
+  overflow: hidden; /* Prevent scrolling within main content */
 }
 
 .theme-switch-wrapper {
