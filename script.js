@@ -19,10 +19,6 @@ function setupInputLimits(inputId, min, max) {
   });
 }
 
-setupInputLimits("cc-1", 0, 127);
-setupInputLimits("cc-2", 0, 127);
-setupInputLimits("cc-3", 0, 127);
-
 // Theme Switching
 const themeSwitch = document.getElementById("theme-switch");
 document.body.classList.add("dark-mode"); // Set dark mode as default
@@ -130,6 +126,10 @@ function makeFaderMovable(faderId, inputId) {
     document.removeEventListener("mouseup", onMouseUp);
   }
 }
+
+setupInputLimits("cc-1", 0, 127);
+setupInputLimits("cc-2", 0, 127);
+setupInputLimits("cc-3", 0, 127);
 
 makeFaderMovable("fader-knob-1", "cc-1");
 makeFaderMovable("fader-knob-2", "cc-2");
