@@ -46,7 +46,7 @@ async function sendConfiguration() {
       const cc3 = document.getElementById("cc-3").value;
 
       const config = {
-        ccValues: [parseInt(cc1), parseInt(cc2), parseInt(cc3)],
+        cc: [parseInt(cc1), parseInt(cc2), parseInt(cc3)],
       };
 
       const data = JSON.stringify(config);
@@ -93,3 +93,36 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("send-config").style.display = "none";
   }
 });
+
+// Make faders movable
+function makeFaderMovable(faderId, inputId) {
+  const faderKnob = document.getElementById(faderId);
+  const input = document.getElementById(inputId);
+  let isDragging = false;
+
+  faderKnob.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+  function onMouseMove(e) {
+    if (!isDragging) return;
+    const faderRect = faderKnob.parentElement.getBoundingClientRect();
+    let newY = e.clientY - faderRect.top;
+    newY = Math.max(0, Math.min(newY, faderRect.height));
+    faderKnob.style.top = `${newY}px`;
+    const value = Math.round((1 - newY / faderRect.height) * 127);
+    input.value = value;
+  }
+
+  function onMouseUp() {
+    isDragging = false;
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
+  }
+}
+
+makeFaderMovable("fader-knob-1", "cc-1");
+makeFaderMovable("fader-knob-2", "cc-2");
+makeFaderMovable("fader-knob-3", "cc-3");

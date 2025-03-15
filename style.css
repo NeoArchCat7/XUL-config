@@ -86,7 +86,7 @@ main {
   justify-content: space-around;
   align-items: center;
   margin-top: 2rem;
-  height: 300px;
+  height: 100%;
 }
 
 .fader-group {
@@ -131,7 +131,7 @@ main {
 
 .content-wrapper {
   height: calc(100vh - 120px);
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 label {
