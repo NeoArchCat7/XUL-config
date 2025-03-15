@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 
 :root {
-  --bg-gradient-dark: linear-gradient(135deg, #3a3a3a, #4a4a4a);
-  --bg-gradient-light: linear-gradient(135deg, #e0e0e0, #f0f0f0);
-  --text-color-dark: #e0e0e0;
-  --text-color-light: #333333;
-  --header-bg-dark: #2a2a2a;
-  --header-bg-light: #d0d0d0;
-  --input-bg-dark: #4a4a4a;
-  --input-bg-light: #c0c0c0;
-  --input-border-dark: #666;
-  --input-border-light: #999;
+  --bg-gradient-dark: linear-gradient(135deg, #2c3e50, #34495e);
+  --bg-gradient-light: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+  --text-color-dark: #ecf0f1;
+  --text-color-light: #2c3e50;
+  --header-bg-dark: #1c2833;
+  --header-bg-light: #d5d8dc;
+  --input-bg-dark: #34495e;
+  --input-bg-light: #ecf0f1;
+  --input-border-dark: #5d6d7e;
+  --input-border-light: #aab7b8;
 }
 
 body {
@@ -111,7 +111,7 @@ main {
 .fader-track {
   width: 14px;
   height: 100%;
-  background: linear-gradient(to bottom, #5a5a5a, #7a7a7a);
+  background: linear-gradient(to bottom, #5d6d7e, #85929e);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -121,7 +121,7 @@ main {
 .fader-knob {
   width: 50px;
   height: 25px;
-  background: linear-gradient(to bottom, #8a8a8a, #6a6a6a);
+  background: linear-gradient(to bottom, #95a5a6, #7f8c8d);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -161,11 +161,11 @@ input[type="number"]:focus {
 }
 
 body.light-mode .fader-track {
-  background: linear-gradient(to bottom, #a0a0a0, #c0c0c0);
+  background: linear-gradient(to bottom, #d5d8dc, #aab7b8);
 }
 
 body.light-mode .fader-knob {
-  background: linear-gradient(to bottom, #909090, #707070);
+  background: linear-gradient(to bottom, #bdc3c7, #95a5a6);
 }
 
 body.light-mode input[type="number"] {
@@ -189,7 +189,7 @@ body.light-mode input[type="number"]:focus {
   padding: 1rem 2rem;
   font-family: "Orbitron", sans-serif;
   font-size: 1.4rem;
-  background-color: #4caf50;
+  background-color: #e74c3c;
   color: white;
   border: none;
   border-radius: 12px;
@@ -200,7 +200,7 @@ body.light-mode input[type="number"]:focus {
 }
 
 #send-config:hover {
-  background-color: #45a049;
+  background-color: #c0392b;
   transform: scale(1.05);
 }
 
@@ -210,12 +210,12 @@ body.light-mode input[type="number"]:focus {
 }
 
 body.light-mode #send-config {
-  background-color: #2196f3;
+  background-color: #3498db;
   color: white;
 }
 
 body.light-mode #send-config:hover {
-  background-color: #1e88e5;
+  background-color: #2980b9;
 }
 
 body.light-mode #send-config:focus {
