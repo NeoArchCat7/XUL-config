@@ -97,7 +97,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.querySelector(".button-container").appendChild(warningElement);
     document.getElementById("send-config").style.display = "none";
   }
+  // Initialize fader positions based on input values
+  updateFaderPosition("cc-1");
+  updateFaderPosition("cc-2");
+  updateFaderPosition("cc-3");
 });
+
+function updateFaderPosition(inputId) {
+  const input = document.getElementById(inputId);
+  const faderKnob = document.getElementById(
+    `fader-knob-${inputId.split("-")[1]}`
+  );
+  const faderRect = faderKnob.parentElement.getBoundingClientRect();
+  const num = parseInt(input.value);
+  const newY = (1 - num / 127) * faderRect.height;
+  faderKnob.style.top = `${newY}px`;
+}
 
 // Make faders movable
 function makeFaderMovable(faderId, inputId) {

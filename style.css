@@ -22,7 +22,7 @@ body {
   color: var(--text-color-dark);
   transition: background-color 0.5s ease, color 0.5s ease;
   height: 100vh; /* Set body height to 100% of the viewport height */
-  overflow: hidden; /* Prevent scrolling */
+  overflow: auto; /* Allow scrolling */
 }
 
 body.light-mode {
@@ -86,7 +86,7 @@ main {
   justify-content: space-around;
   align-items: center;
   margin-top: 2rem;
-  height: 100%;
+  height: auto; /* Allow fader container height to adjust based on content */
 }
 
 .fader-group {
@@ -176,7 +176,7 @@ body.light-mode input[type="number"]:focus {
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 3rem; /* Increase margin to move button slightly lower */
+  margin-top: 4rem; /* Increase margin to move button slightly lower */
 }
 
 #send-config {
