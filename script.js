@@ -8,6 +8,14 @@ function setupInputLimits(inputId, min, max) {
 
     if (num > max) this.value = max;
     if (num < min) this.value = min;
+
+    // Update fader position based on input value
+    const faderKnob = document.getElementById(
+      `fader-knob-${inputId.split("-")[1]}`
+    );
+    const faderRect = faderKnob.parentElement.getBoundingClientRect();
+    const newY = (1 - num / 127) * faderRect.height;
+    faderKnob.style.top = `${newY}px`;
   });
 }
 
