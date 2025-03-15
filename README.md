@@ -5,7 +5,6 @@ Download it on chromium-based browsers on [Github Pages](https://neoarchcat7.git
 The app includes next features:
 
 - theme switching
-- resolution drop-down
 - CC number inputs
 - button to send configuration to arduino
 - connection with WebSerialApi
