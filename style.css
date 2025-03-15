@@ -21,8 +21,8 @@ body {
   background: var(--bg-gradient-dark);
   color: var(--text-color-dark);
   transition: background-color 0.5s ease, color 0.5s ease;
-  height: auto; /* Allow body height to adjust based on content */
-  overflow: auto; /* Enable scrolling if necessary */
+  height: 100vh; /* Set body height to 100% of the viewport height */
+  overflow: hidden; /* Prevent scrolling */
 }
 
 body.light-mode {
@@ -176,7 +176,7 @@ body.light-mode input[type="number"]:focus {
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 2rem; /* Increase margin to ensure button is fully visible */
+  margin-top: 3rem; /* Increase margin to move button slightly lower */
 }
 
 #send-config {

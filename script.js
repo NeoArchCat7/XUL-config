@@ -6,10 +6,11 @@ function setupInputLimits(inputId, min, max) {
     if (this.value === "") return;
     let num = parseInt(this.value);
 
-    if (num > max) this.value = max;
-    if (num < min) this.value = min;
+    if (num > max) num = max;
+    if (num < min) num = min;
+    this.value = num;
 
-    // Update fader position based on input value
+    // Update fader position based on pre-limited input value
     const faderKnob = document.getElementById(
       `fader-knob-${inputId.split("-")[1]}`
     );
